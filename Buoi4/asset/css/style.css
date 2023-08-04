@@ -1,0 +1,140 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+body{
+    font-family: 'Roboto',sans-serif;
+}
+.block{
+    width: 100%;
+    float: left;
+}
+.container{
+    width: 100%;
+}
+.block-nav,.block-slide{
+    background-color: orange;
+}
+.block-nav img{
+	width:150px;
+	height:150px;
+	float: left;
+    margin-right: 100px;
+    position: relative;
+    top:-25px;
+    left:100px;
+   
+}
+.menu{
+    position: relative;
+    top:30px;
+    left:150px;
+}
+.block-nav a{
+    padding: 15px 20px;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size:15px ;
+}
+.block-nav a:last-child{
+    color:white;
+    background-color: #4a4949;
+    border-radius: 5px;
+}
+.block-slide{
+    height: 450px;
+}
+.quote{
+    color:white;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 90px;
+    float: left;
+    width: calc(50% - 40px);
+    margin: 0 20px;
+    text-align: left;
+    padding-left:100px;
+    line-height: 70px;
+    padding-top: 60px;
+}
+.laptop{
+    float: right;
+    width: calc(50% - 40px);
+    margin: 0 20px;
+    
+    position: relative;
+    left: -60px;
+    top: -130px;
+}
+.laptop img{
+    width: 600px;
+}
+.block-main{
+    height: 300px;
+}
+.card-container{
+    display: flex;
+    
+}
+.card{
+    width: calc(33% - 20px);
+    margin: 40px 10px;
+    text-align: center;
+   
+}
+
+.card img{
+    width: 60px;
+    height: 60px;
+}
+.card h3{
+    font-weight: 600;
+    margin: 10px;
+}
+.card p{
+    line-height: 25px;
+    color:#4c4c4c;
+    padding:0 32px;
+    font-size: 16px;
+}
+.block-footer{
+    background-color: #059205;
+    height: 370px;
+    text-align: center;
+    color: white;
+}
+
+.quote-footer h1{
+    
+    font-weight: 500;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-top: 70px;
+}
+.quote-footer p{
+    line-height: 30px;
+    width: 450px;
+    margin: 10px auto;
+    
+}
+.footer-nav a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    bottom: -90px;
+    padding: 10px 20px;
+    font-size: 10px;
+}
+.footer-nav a:first-child{
+    color: #059205;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    bottom: -90px;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px;
+}
