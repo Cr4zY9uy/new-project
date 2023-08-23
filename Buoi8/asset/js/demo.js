@@ -88,7 +88,7 @@ for (let i = 0; i < a.length; i++) {
 }
 switch (count) {
     case 3:
-        alert("+ 10M");
+        alert("+ 10M");https://reviewcongty.com/companies/tda-international-vietnam
         break;
     case 4:
         alert("+ 100M");

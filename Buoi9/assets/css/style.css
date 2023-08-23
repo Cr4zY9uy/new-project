@@ -1,0 +1,16 @@
+.box {
+    margin: 144px auto;
+    width: 300px;
+    height: 300px;
+    display: block;
+    background-color: aqua;
+}
+
+#fan {
+    background-color: red;
+    width: 1000px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
