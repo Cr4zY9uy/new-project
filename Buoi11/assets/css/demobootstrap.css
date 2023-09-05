@@ -63,8 +63,7 @@ a {
 }
 
 a:hover {
-    border-bottom: 2px solid red;
-
+    box-shadow: 0px 2px 0px red;
 }
 
 .group-icon {

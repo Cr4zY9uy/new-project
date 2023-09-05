@@ -15,7 +15,8 @@ fetch(url).then(data => data.json())
         }
         const uniqueBrand = [...new Set(brands)],
             uniqueCate = [...new Set(categories)];
-        const parent = document.getElementById(`products`);
+        var parent = document.getElementById(`products`);
+        parent.innerHTML = '';
         const parentBrand = document.getElementById(`brand-nav`);
         const parentCate = document.getElementById(`type`);
         for (let i = 0; i < product.length; i++) {
@@ -56,3 +57,63 @@ fetch(url).then(data => data.json())
         }
 
     })
+
+document.getElementById(`search-icon`).addEventListener('click', function () {
+    let nameSearch = document.getElementById("item-name").value;
+    var parent = document.getElementById(`products`);
+    parent.innerHTML = '';
+    if (nameSearch === null) {
+        console.log('Input value is null or empty. Fetch request not made.');
+        const controller = new AbortController();
+        controller.abort();
+    }
+    else {
+        var urlSearch = `https://dummyjson.com/products/search?q=${nameSearch}`
+        fetch(urlSearch).then(data => data.json())
+            .then(data => {
+                const product = data.products;
+                const ratings = [];
+                for (let i = 0; i < product.length; i++) {
+                    ratings.push(product[i].rating);
+                }
+                for (let i = 0; i < product.length; i++) {
+                    parent.innerHTML += `
+            <div class="col-3 item">
+                <img src=${product[i].thumbnail} alt=${product[i].title} 
+                class="img-item" width="100%" height="250px">
+                <div class="sales"><span>${product[i].discountPercentage}</span></div>
+                <figure class="des">
+                    <h4>${product[i].title}</h4>
+                    <h6>${product[i].description}</h6>
+                    <h5>${product[i].price}</h5>
+                    <div class="stars-outer">
+                    <div class=" stars-inner"></div>
+                    </div>
+                </figure>
+            </div>`;
+                }
+                const starsTotal = 5;
+                // Run getRatings when DOM loads
+                // Get ratings
+                for (let rating in ratings) {
+                    // Get percentage
+                    const starPercentage = (ratings[rating] / starsTotal) * 100;
+                    console.log(rating);
+                    // Round to nearest 10
+                    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+
+                    // Set width of stars-inner to percentage
+                    document.querySelectorAll(`.stars-inner`)[rating].style.width = starPercentageRounded;
+
+                }
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+})
+
+document.querySelector(`form`).addEventListener('submit', function (e) {
+    return e.preventDefault();
+})
