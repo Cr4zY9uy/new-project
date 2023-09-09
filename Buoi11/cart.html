@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="assets/libs/bootstrap@5.3.1/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/demobootstrap.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+</head>
+
+<body>
+    <header class="block block-header">
+        <div class="container">
+            <div class="row header">
+                <div class="col-2 logo">Phone Club</div>
+                <div class="col-6 nav-bar">
+                    <div><a class="active" href="Homework.html" target="_blank">Home</a></div>
+                    <div class="category-hove">
+                        <a href="">Category</a>
+                        <div id="type"></div>
+                    </div>
+                    <div class="brand-hove">
+                        <a href="">Brand</a>
+                        <div id="brand-nav">
+                        </div>
+                    </div>
+                    <div><a href="" active>Product</a></div>
+                    <div><a href="">Contact</a></div>
+                </div>
+                <form class="col-3 search"><input type="text" class="form-control" id="item-name"
+                        placeholder="Find new product">
+                    <i id="search-icon" class="bi bi-search"></i>
+                </form>
+                <div id="cart" class="col-1"><i class="bi bi-cart2"></i>
+                    <div id="cart_number"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+
+        <main class="block block-content">
+            <div class="row" id="shopping">
+                <div class="col-8 product">
+                    <h3 class="title">Cart</h3>
+                    <table id="shopping-products-table" class="table text-center align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productShop">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-4 invoice">
+                    <div class="row">
+                        <h3>Cart totals</h3>
+                        <hr>
+                        <h5>Subtotal</h5><span id="subtotal"></span>
+                        <hr>
+                        <h5>Shipping</h5><span id="shipping"></span>
+                        <hr>
+                        <h6>Total</h6><span id="total"></span>
+                        <button type="button" class="btn btn-dark">Proceed to checkout</button>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-danger" onclick="DeleteAll()">Delete all</button>
+                </div>
+        </main>
+    </div>
+    <div id="scrollTop"><i class="bi bi-arrow-up"></i></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/cart.js"></script>
+    <script type="text/javascript">getCart(); </script>
+</body>
+
+</html>

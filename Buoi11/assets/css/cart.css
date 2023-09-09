@@ -1,0 +1,16 @@
+.product {
+    border: 1px solid #ddd;
+    border-bottom: none;
+}
+
+.invoice {
+    border: 1px solid #ddd;
+    border-left: none;
+    border-bottom: none;
+
+}
+
+
+.btn-light:hover {
+    color: white;
+}

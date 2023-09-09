@@ -62,7 +62,7 @@ a {
     position: relative;
 }
 
-a:hover {
+.nav-bar a:hover {
     box-shadow: 0px 2px 0px red;
 }
 
@@ -289,4 +289,69 @@ h5:after {
 
 h6 {
     color: #706e6e;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+#scrollTop i {
+    padding: 10px;
+    background-color: #ddd;
+    font-size: 30px;
+    color: #ffffff;
+    position: fixed;
+    bottom: 3%;
+    right: 1%;
+    font-weight: 700;
+
+}
+
+#scrollTop i:hover {
+    color: #000000;
+    cursor: pointer;
+}
+
+#cart {
+    display: flex;
+}
+
+.bi-cart2 {
+    font-size: 22px;
+}
+
+#cart_number {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #ddd;
+    font-size: 10px;
+    font-weight: 700;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.action button{
+    padding: 0 auto;
+
 }

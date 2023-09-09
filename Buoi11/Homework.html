@@ -23,7 +23,7 @@
             <div class="row header">
                 <div class="col-2 logo">Phone Club</div>
                 <div class="col-6 nav-bar">
-                    <div><a class="active" href="index.html" target="_blank">Home</a></div>
+                    <div><a class="active" href="Homework.html" target="_blank">Home</a></div>
                     <div class="category-hove">
                         <a href="">Category</a>
                         <div id="type"></div>
@@ -36,10 +36,13 @@
                     <div><a href="" active>Product</a></div>
                     <div><a href="">Contact</a></div>
                 </div>
-                <form class="col-4 search"><input type="text" class="form-control" id="item-name"
+                <form class="col-3 search"><input type="text" class="form-control" id="item-name"
                         placeholder="Find new product">
                     <i id="search-icon" class="bi bi-search"></i>
                 </form>
+                <div id="cart" class="col-1"><a href="cart.html" style="padding-right: 0;padding-left: 0;"><i class="bi bi-cart2"></i>
+                    <div id="cart_number"></a></div>
+                </div>
             </div>
         </div>
     </header>
@@ -76,7 +79,11 @@
         <main class="block block-content">
             <h3 class="title">Our Products</h3>
             <div class="row" id="products">
-
+            </div>
+            <div class="pagination">
+                <a href="javascript:void(0)" class="prev">&laquo;</a>
+                <div class="numberPage"></div>
+                <a href="javascript:void(0)" class="next">&raquo;</a>
             </div>
         </main>
         <aside class="block block-aside">
@@ -99,11 +106,12 @@
             </div>
         </aside>
     </div>
-
+    <div id="scrollTop"><i class="bi bi-arrow-up"></i></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/js/HomeWork.js"></script>
+    <script type="text/javascript">getItem(); renderPageList(); </script>
 </body>
 
 </html>
