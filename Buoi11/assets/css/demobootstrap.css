@@ -246,6 +246,38 @@ h5:after {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    max-height: 290px;
+    /* Adjust the height as needed */
+    overflow: overlay;
+}
+
+#brand-nav::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+}
+
+#brand-nav::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color of the scrollbar thumb */
+    border-radius: 6px;
+    /* Rounded corners of the thumb */
+}
+
+#brand-nav::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    /* Color of the scrollbar thumb on hover */
+}
+
+#brand-nav::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    /* Color of the scrollbar track */
+    border-radius: 6px;
+    /* Rounded corners of the track */
+}
+
+#brand-nav::-webkit-scrollbar-track:hover {
+    background-color: #ccc;
+    /* Color of the scrollbar track on hover */
 }
 
 #brand-nav>a {
@@ -351,7 +383,7 @@ h6 {
     vertical-align: middle;
 }
 
-.action button{
+.action button {
     padding: 0 auto;
 
 }
