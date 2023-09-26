@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    background-image: url("../../public/images/skypic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#forecast_list {
+    display: flex;
+
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+.error_text {
+    color: red;
+    font-size: 18px;
+    vertical-align: middle;
+}
