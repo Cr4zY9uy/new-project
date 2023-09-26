@@ -2,20 +2,27 @@ import { Row } from "react-bootstrap";
 import { ProductGrid } from "../layouts/product-grid";
 import ControlledCarousel from "../Slider.js";
 import { useEffect, useState } from "react";
+import api from '../../api';
 function Home() {
     const [products, setProducts] = useState([]);
-    const loadProduct = () => {
-        const url = "https://dummyjson.com/products?limit=12";
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                setProducts(data.products)
-            })
-            .catch(error => console.error(error));
+    const loadProduct = async () => {
+        const url = "products?limit=12";
+        // api.get(url)
+        //     .then(data => {
+        //         setProducts(data.data.products)
+        //     })
+        //     .catch(error => console.error(error));
+        try {
+            const rs = await api.get(url);
+            setProducts(rs.data.products)
+        } catch (e) {
+            console.error(e);
+            throw new Error("Some thing's wrong")
+        }
     }
     useEffect(() => {
 
-    }, )
+    },)
     useEffect(() => {
         loadProduct();
     }, [])

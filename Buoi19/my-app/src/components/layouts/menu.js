@@ -6,26 +6,33 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LinkContainer } from 'react-router-bootstrap'
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import './menu.css'
+import api from '../../api';
+import { NavLink } from 'react-router-dom';
+import Product from '../pages/product';
 export default function Menu(props) {
     const [categories, setCategory] = useState([]);
-    const loadCategory = () => {
-        const url = "https://dummyjson.com/products?limit=12";
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                setCategory(data.products)
-            })
-            .catch(error => console.error(error));
+    const loadCategory = async () => {
+        const url = "products/categories";
+        // api.get(url)
+        //     .then(data => {
+        //         setCategory(data.data.products)
+        //     })
+        //     .catch(error => console.error(error));
+        try {
+            const rs = await api.get(url);
+            setCategory(rs.data);
+        } catch (e) { console.error(e) };
     }
     useEffect(() => {
         loadCategory();
     }, []);
-    const uniqueCategories = new Set();
+    // const uniqueCategories = new Set();
 
-    categories.forEach((item) => {
-        uniqueCategories.add(item.category);
-    });
-
+    // categories.forEach((item) => {
+    //     uniqueCategories.add(item.category);
+    // });
 
     return (
 
@@ -46,8 +53,9 @@ export default function Menu(props) {
                             <Nav.Link href="#">Products</Nav.Link>
                         </LinkContainer>
                         <NavDropdown title="Category" id="navbarScrollingDropdown">{
-                            Array.from(uniqueCategories).map((item, index) => {
-                                return <NavDropdown.Item key={index}>{item.category}</NavDropdown.Item>
+                            categories.map((item, index) => {
+                                console.log(item)
+                                return <NavDropdown.Item key={index}><NavLink to={`/category/${item}`} className={"text-decoration-none"}>{item}</NavLink></NavDropdown.Item>
                             })
                         }
                         </NavDropdown>
