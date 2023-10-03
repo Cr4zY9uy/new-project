@@ -3,7 +3,6 @@ import { ProductGrid } from "../layouts/product-grid";
 import ControlledCarousel from "../Slider.js";
 import { useEffect, useState } from "react";
 import api from '../../api';
-import PaginatedItems from "../layouts/panigation";
 function Home() {
     const [products, setProducts] = useState([]);
     const loadProduct = async () => {
@@ -22,9 +21,6 @@ function Home() {
         }
     }
     useEffect(() => {
-
-    },)
-    useEffect(() => {
         loadProduct();
     }, [])
     return (
@@ -38,7 +34,6 @@ function Home() {
                         })
                     }
                 </Row>
-                <PaginatedItems />
             </div>
         </>
     );

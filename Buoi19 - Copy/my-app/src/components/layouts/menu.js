@@ -11,8 +11,11 @@ import './menu.css'
 import api from '../../api';
 import { NavLink } from 'react-router-dom';
 import Product from '../pages/product';
+import { useContext } from 'react';
+import Context from '../../context/context';
 export default function Menu(props) {
     const [categories, setCategory] = useState([]);
+    const { state, dispatch } = useContext(Context);
     const loadCategory = async () => {
         const url = "products/categories";
         // api.get(url)
@@ -60,7 +63,7 @@ export default function Menu(props) {
                         </NavDropdown>
                         <LinkContainer to="/cart">
                             <Nav.Link href="#">
-                                Cart
+                                Cart{state.cart.length}
                             </Nav.Link>
                         </LinkContainer>
                     </Nav>
