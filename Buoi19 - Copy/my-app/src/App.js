@@ -10,9 +10,9 @@ import SingUp from './components/pages/signup';
 import Login from './components/pages/login';
 import { AppProvider } from './context/context';
 import STATE from './context/initState';
-import { useState } from 'react';
 import { useReducer } from 'react';
 import reducer from './context/reducer';
+import Favourite from './components/pages/favourite';
 function App() {
   const [state, dispatch] = useReducer(reducer, STATE);
   return (
@@ -25,9 +25,10 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/category/:slug' element={<Category />} />
             <Route path='/products/:slug' element={<Product />} />
-            <Route path='/cart' element={<Cart />}></Route>
+            <Route path='/cart' element={<Cart />} />
             <Route path='/sign-up' element={<SingUp />} />
-            <Route path='/login' element={<Login />}></Route>
+            <Route path='/login' element={<Login />} />
+            <Route path='/favourite' element={<Favourite />} />
           </Routes>
         </main>
       </div>

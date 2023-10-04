@@ -20,7 +20,7 @@ export default function Header(props) {
                             <NavLink to={"/sign-up"} className="nav-link" aria-current="page" >Sign up</NavLink>
                         </li>
                         <li className="list-group-item border border-0">
-                            <a className="text-black text-decoration-none" href="#">Favourites{state.favourite.length}</a>
+                            <NavLink to={"/favourite"} className="nav-link" aria-current="page" >Favourites{state.favourite.length}</NavLink>
                         </li>
                     </ul>
                 </div>

@@ -20,7 +20,7 @@ export function ProductGrid(props) {
                     <Button variant="outline-primary"><NavLink to={`/products/${products.id}`}>Buy</NavLink></Button>
                 </Card>
             </Col>
-            
+
         </>
     );
 }

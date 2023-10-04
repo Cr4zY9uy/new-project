@@ -1,23 +1,23 @@
-
-import { Spinner } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function Loading(props) {
+function FavouriteExisted(props) {
     return (
         <Modal
             {...props}
-            size="lg"
+            size="md"
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Buying
+                    Notice
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Spinner animation="border" variant="primary" />
+                <p className='text-center'>
+                    Product was in your favourite item list
+                </p>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props.onHide}>Close</Button>
@@ -25,6 +25,4 @@ function Loading(props) {
         </Modal>
     );
 }
-
-
-export default Loading;
+export default FavouriteExisted;
