@@ -1,0 +1,12 @@
+#loading {
+    background-image: url("/public/assets/images/loading.gif");
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    position: fixed;
+    background-color: rgb(128, 128, 128, 0.8);
+    background-position: center;
+    background-size: 100px 100px;
+    top: 0;
+    left: 0;
+}

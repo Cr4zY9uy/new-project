@@ -9,16 +9,15 @@ export function ProductGrid(props) {
     return (
         <>
             <Col xs={3} className="mt-2 mb-2 text-center h-50">
-                <Card>
-                    <Card.Img variant="top" src={products.thumbnail} alt="product-img" height={"250px"} loading="lazy" />
-                    <Card.Title>{products.title}</Card.Title>
+                <NavLink to={`/products/${products.id}`} className={"text-decoration-none"}><Card>
+                    <Card.Img variant="top" src={products.thumbnail} alt="product-img" height={"300px"} loading="lazy" />
+                    <Card.Title className="text-capitalize">{products.title}</Card.Title>
                     <Card.Body>
                         <Card.Text>
-                            {products.description}
+                            {products.description.slice(0, 30) + (products.description > 30 ? "" : "...")}
                         </Card.Text>
                     </Card.Body>
-                    <Button variant="outline-primary"><NavLink to={`/products/${products.id}`}>Buy</NavLink></Button>
-                </Card>
+                </Card></NavLink>
             </Col>
 
         </>
