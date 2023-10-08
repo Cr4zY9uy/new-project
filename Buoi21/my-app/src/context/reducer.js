@@ -9,6 +9,7 @@ const reducer = (state, action) => {
         case ACTION.UPDATE_FAVOURITE: return updateLocalStorage({ ...state, favourite: action.payload });
         case ACTION.SHOW_LOADING: return updateLocalStorage({ ...state, isLoading: true });
         case ACTION.HIDE_LOADING: return updateLocalStorage({ ...state, isLoading: false });
+        case ACTION.UPDATE_KEYWORD: return updateLocalStorage({ ...state, keyword: action.payload })
         default: return state;
     }
 }

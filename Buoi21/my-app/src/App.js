@@ -13,8 +13,9 @@ import STATE from './context/initState';
 import { useReducer } from 'react';
 import reducer from './context/reducer';
 import Favourite from './components/pages/favourite';
+import Search from './components/pages/search';
 function App() {
-  const initData=localStorage.getItem("state")?JSON.parse(localStorage.getItem("state")):STATE;
+  const initData = localStorage.getItem("state") ? JSON.parse(localStorage.getItem("state")) : STATE;
   const [state, dispatch] = useReducer(reducer, initData);
   return (
     <AppProvider value={{ state, dispatch }}>
@@ -30,6 +31,7 @@ function App() {
             <Route path='/sign-up' element={<SingUp />} />
             <Route path='/login' element={<Login />} />
             <Route path='/favourite' element={<Favourite />} />
+            <Route path='/search' element={<Search />} />
           </Routes>
         </main>
       </div>

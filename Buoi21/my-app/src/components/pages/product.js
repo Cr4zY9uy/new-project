@@ -73,6 +73,7 @@ function Product() {
 
     useEffect(() => {
         loadProduct();
+        console.log(state)
     }, [])
 
     return (

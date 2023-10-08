@@ -1,6 +1,7 @@
 const STATE = {
     cart: [],
     favourite: [],
-    isloading: false
+    isloading: false,
+    keyword:""
 }
 export default STATE; 
