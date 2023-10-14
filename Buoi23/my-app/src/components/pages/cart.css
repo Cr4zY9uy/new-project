@@ -1,0 +1,50 @@
+.w-25 {
+
+    border-radius: 15px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px;
+    background-color: white;
+}
+
+#facebook,
+#google,
+#linkedin {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#google {
+    border: 3px solid red;
+    color: red;
+    font-size: 20px;
+}
+
+#facebook {
+    border: 3px solid #4040e4;
+    color: #4040e4;
+    font-size: 20px;
+
+}
+
+#linkedin {
+    border: 3px solid #1f1fad;
+    color: #1f1fad;
+    font-size: 20px;
+
+}
+
+.tag {
+    width: 100%;
+    color: grey;
+}
+
+.or {
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 5px;
+    color: grey;
+    position: relative;
+    top: -35px;
+    z-index: 1;
+    background-color: white;
+}

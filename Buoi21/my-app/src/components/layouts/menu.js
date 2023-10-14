@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -9,13 +8,16 @@ import { useEffect, useState } from 'react';
 import './menu.css'
 import api from '../../api';
 import { NavLink } from 'react-router-dom';
-import { useContext } from 'react';
-import Context from '../../context/context';
-import Search from '../pages/search';
-import ACTION from '../../context/action';
-export default function Menu(props) {
+// import { useContext } from 'react';
+// import Context from '../../context/context';
+// import ACTION from '../../context/action';
+import { InputGroup } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+function Menu(props) {
     const [categories, setCategory] = useState([]);
-    const { state, dispatch } = useContext(Context);
+    // const { state, dispatch } = useContext(Context);
+    const state = props.state;
     const [q, setQ] = useState("");
     const loadCategory = async () => {
         const url = "products/categories";
@@ -29,6 +31,7 @@ export default function Menu(props) {
             setCategory(rs.data);
         } catch (e) { console.error(e) };
     }
+
     useEffect(() => {
         loadCategory();
     }, []);
@@ -37,13 +40,18 @@ export default function Menu(props) {
     // categories.forEach((item) => {
     //     uniqueCategories.add(item.category);
     // });
+    const history = useNavigate();
+
+
+    const search = () => {
+        // dispatch({ type: ACTION.UPDATE_KEYWORD, payload: q });
+    }
     const stopSubmit = (e) => {
         e.preventDefault();
+        search();
+        history('/search');
     }
-    const search = () => {
-        dispatch({ type: ACTION.UPDATE_KEYWORD, payload: q });
-    }
-    useEffect(() => { console.log(q) }, [q]);
+
     return (
 
         <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
@@ -70,29 +78,34 @@ export default function Menu(props) {
                         </NavDropdown>
                         <LinkContainer to="/cart">
                             <Nav.Link href="#">
-                                Cart{state.cart.length}
+                                Cart({state.cart.length})
                             </Nav.Link>
                         </LinkContainer>
                     </Nav>
 
-                    <Form className="d-flex" onSubmit={(e) => { stopSubmit(e) }} accessKey='ENTER' >
-                        <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            aria-label="Search"
-                            value={q}
-                            onChange={(e) => {
-
-                                setQ(e.target.value)
-
-                            }}
-                        />
-                        <LinkContainer as={NavLink} to={"/search"}><Button variant="outline-success" onClick={search}>Search</Button></LinkContainer>
+                    <Form className="d-flex" onSubmit={stopSubmit} >
+                        <InputGroup className="mb-3">
+                            <Form.Control
+                                type="search"
+                                placeholder="Search"
+                                aria-label="Search"
+                                value={q}
+                                onChange={(e) => { setQ(e.target.value) }}
+                            />
+                            <InputGroup.Text><i class="bi bi-search"></i></InputGroup.Text>
+                        </InputGroup>
                     </Form>
+
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
 
     );
 }
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        state: state
+    }
+}
+export default connect(mapStateToProps, null)(Menu)

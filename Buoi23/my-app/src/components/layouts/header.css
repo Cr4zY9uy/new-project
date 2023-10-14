@@ -1,0 +1,30 @@
+.menu2 {
+    display: none;
+    z-index: 10;
+}
+
+.menu2 li {
+    background-color: white;
+    width: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border: 1px solid grey;
+    text-align: start;
+    list-style: none;
+}
+
+.menu2 li:first-of-type {
+    border-bottom: none;
+}
+
+
+.menu1:hover .menu2 {
+    display: block;
+    position: absolute;
+    top: 40px;
+}
+
+.menu2 li:hover {
+    background-color: antiquewhite;
+}

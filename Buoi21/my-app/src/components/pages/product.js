@@ -2,16 +2,18 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Image, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import api from "../../api";
-import Context from "../../context/context";
-import { useContext } from "react";
-import ACTION from "../../context/action";
+// import Context from "../../context/context";
+// import { useContext } from "react";
+// import ACTION from "../../context/action";
+import ACTION from "../../redux/action";
 import FavouriteExisted from "./favouriteExistedModal";
 import "./loading.css"
-function Product() {
+import { connect } from "react-redux";
+function Product(props) {
     const { slug } = useParams();
     const [product, setProducts] = useState({});
     // const [cart,setCart]=useState(0);
-    const { state, dispatch } = useContext(Context);
+    // const { state, dispatch } = useContext(Context);
     const [modalShow, setModalShow] = useState(false);
     const loadProduct = async () => {
         // api.get(url)
@@ -29,7 +31,7 @@ function Product() {
         }
     }
     const addToCart = () => {
-        const cart = [...state.cart];  // Create a shallow copy of the cart
+        const cart = [...props.state.cart];  // Create a shallow copy of the cart
 
         // Check if the product is already in the cart
         const existingItemIndex = cart.findIndex(cartItem => cartItem.id === product.id);
@@ -42,18 +44,17 @@ function Product() {
             cart.push({ ...product, quantity: 1 });
         }
 
-        dispatch({ type: ACTION.UPDATE_CART, payload: cart });
-        // Log the updated cart and hide loading after 2 seconds
+        props.dispatch(cart);
         setTimeout(() => {
 
-            dispatch({ type: ACTION.HIDE_LOADING });
+            props.hideLoading()
         }, 1500);
     };
 
 
 
     const addToFavourite = () => {
-        const favourite = [...state.favourite];  // Create a shallow copy of the cart
+        const favourite = [...props.state.favourite];  // Create a shallow copy of the cart
 
         // Check if the product is already in the cart
         const existingItemIndex = favourite.findIndex(favouriteItem => favouriteItem.id === product.id);
@@ -65,15 +66,13 @@ function Product() {
             // If the product is not in the cart, add it with quantity 1
             favourite.push(product);
         }
-
-        dispatch({ type: ACTION.UPDATE_FAVOURITE, payload: favourite });
+        props.addToFavourite(favourite);
         // Log the updated cart and hide loading after 2 seconds
 
     };
 
     useEffect(() => {
         loadProduct();
-        console.log(state)
     }, [])
 
     return (
@@ -91,7 +90,7 @@ function Product() {
                     <h4>Price: {product.price}</h4>
                     <Button variant="success" onClick={addToCart}>Add to cart</Button>
                     <Button variant="primary" onClick={addToFavourite}>Add to favourite</Button>
-                    <div id="loading" style={{ display: state.isLoading ? "block" : "none" }}>
+                    <div id="loading" style={{ display: props.state.isLoading ? "block" : "none" }}>
                     </div>
                     <FavouriteExisted
                         show={modalShow}
@@ -103,5 +102,24 @@ function Product() {
         </div>
     );
 }
+const mapStateToProps = (state, ownProps) => {
+    return {
+        state: state
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatch: (cart) => {
+            dispatch({ type: ACTION.UPDATE_CART, payload: cart })
+        },
+        hideLoading: () => {
+            dispatch({ type: ACTION.HIDE_LOADING })
+        },
+        addToFavourite: (favourite) => {
+            dispatch({ type: ACTION.UPDATE_FAVOURITE, payload: favourite })
+        }
 
-export default Product;
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

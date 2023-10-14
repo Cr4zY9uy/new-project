@@ -1,0 +1,12 @@
+const ACTION = {
+    UPDATE_CART: 1,
+    DELETE_CART:9,
+    UPDATE_FAVOURITE: 2,
+    SHOW_LOADING: 3,
+    HIDE_LOADING: 4,
+    UPDATE_KEYWORD: 5,
+    DELETE_KEYWORD: 6,
+    ADD_USER: 7,
+    ADD_CURRENT_USER: 8
+}
+export default ACTION;

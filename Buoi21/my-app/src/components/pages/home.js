@@ -38,10 +38,7 @@ function Home() {
         }
         setPage(page + 1);
     }
-    useEffect(() => {
-        console.log(page);
 
-    }, [page]);
     const handlPrev = () => {
         if (page === 1) {
             return;
